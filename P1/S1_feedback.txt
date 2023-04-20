@@ -1,0 +1,57 @@
+Team #01
+BAUSILI FERNÁNDEZ, ALBERT
+VENTURA VILA, NOA YU
+VERDURA MEJÍAS, POL
+
+e) Degut a l'ordre FIFO en els missatges entre dos processos que garanteix Erlang i a que només hi ha un servidor, no pot passar en cap situació
+f) Si un client fa join durant un broadcast no rebrà el missatge, ja que no està a la llista de clients encara. Sí que rebrà el broadcast si fa leave, ja que encara està a la llista i la funció process_requests del client està escoltant
+
+Team #02
+FUENTES DOMENÉ, FERRAN
+SANZ MARTINEZ, SERGIO
+VALLS FUSTÉ, ARNAU
+
+h) Les respostes a c) i d) es mantenen, i efectivament, la situació descrita a e) ara sí que pot passar
+i) La llista de servidors pot quedar inconsistent quan hi ha peticions concurrents de 'server_join_req' en servidors diferents
+
+Team #03
+EL AICHOUNI JOUIED, TARIK
+MARTÍN FERNANDES, EDGAR - XAVIER
+NAVARRO ACOSTA, MARC
+
+f) Si un client fa join durant un broadcast, efectivament, no rebrà el missatge, ja que no està a la llista de clients encara. Sí que rebrà el broadcast si fa leave, ja que encara està a la llista i la funció process_requests del client està escoltant
+* Falta l'opinió personal al report
+
+Team #04
+CAROT RIPOLLES, FRANCISCO
+CORTÉS SÁNCHEZ, JUAN
+ROMEO RIUS, MIQUEL
+
+e) Degut a l'ordre FIFO en els missatges entre dos processos que garanteix Erlang i a que només hi ha un servidor, no pot passar en cap situació
+f) Si un client fa join durant un broadcast, efectivament, no rebrà el missatge, ja que no està a la llista de clients encara. Sí que rebrà el broadcast si fa leave, ja que encara està a la llista i la funció process_requests del client està escoltant
+h) Les respostes a c) i d) es mantenen, i efectivament, la situació descrita a e) ara sí que pot passar
+j) Efectivament, aquesta implementació té problemes d'inconsistència quan s'actualitza la llista de servidors, però tolera millor les fallades d'un servidor
+
+Team #05
+BARRETO TOMEO, XAVIER
+KALLAI RAVENTÓS, POL
+SOLANES SERRAT, FERRAN
+
+f) Si un client fa join durant un broadcast, efectivament, no rebrà el missatge, ja que no està a la llista de clients encara. Sí que rebrà el broadcast si fa leave, ja que encara està a la llista i la funció process_requests del client està escoltant
+
+Team #06
+MEDINA AMADO, RICARD
+SÁNCHEZ ROCA, MARCEL
+
+a) No escala bé ja que tenir un únic servidor limita la quantitat de clients que es poden connectar
+f) En la nostra implementació, si un client fa join durant un broadcast no rebrà el missatge, ja que no està a la llista de clients encara. Sí que rebrà el broadcast si fa leave, ja que encara està a la llista i la funció process_requests del client està escoltant
+i) La llista de servidors pot quedar inconsistent quan hi ha peticions concurrents de 'server_join_req' en servidors diferents
+
+Team #07
+GIRÓ I FIGUERAS, CLAUDIA
+VILLARREAL ARIAS, JAVIER
+
+f) En la nostra implementació, si un client fa join durant un broadcast no rebrà el missatge, ja que no està a la llista de clients encara. Sí que rebrà el broadcast si fa leave, ja que encara està a la llista i la funció process_requests del client està escoltant
+h) Les respostes a c) i d) es mantenen, i efectivament, la situació descrita a e) ara sí que pot passar
+i) La llista de servidors pot quedar inconsistent quan hi ha peticions concurrents de 'server_join_req' en servidors diferents
+j) Per tant, aquesta implementació escala millor, és més tolerant a fallades, però també té més latencia

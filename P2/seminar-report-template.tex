@@ -1,0 +1,84 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage[utf8]{inputenc} % Change according your file encoding
+\usepackage{graphicx}
+\usepackage{url}
+
+%opening
+\title{Seminar Report: Muty}
+\author{\textbf{Ricard Medina, Marcel Sánchez}}
+\date{\normalsize\today{}}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+  Upload your report in PDF format.
+  
+  Use this LaTeX template to format the report.
+\end{center}
+
+\section{Open questions}
+
+\textit{Try to answer all the open questions in the assignment. When asked to do so, perform experiments to support your answers.}
+\newline
+a) What unwanted halting situation can occur when contention increases?
+
+Es pot donar lloc a un Deadlock.
+\newline
+
+b) Indicate two situations which can lead to a process withdrawal (i.e., a
+process gets tired of waiting to be granted access to the critical section).Assume that processes do not fail.
+
+Quan es dona lloc a un Deadlock els processos es poden retirar del waiting en cas de que el temps màxim d'espera que tenen s'excedeixi ac cuasa d'aquest Deadlock.
+Un altre situació en la que pot succeïr és quan un procés es manté a la zona crítica durant un temps superior al temps d'espera màxim d'un altre procés. En aquest cas el procés en espera es retira del waiting després de que s'eccedeixi el temps màxim d'espera.
+\newline
+
+c) Justify how your code guarantees that only one worker is in the critical
+section at any time.
+
+Un cop un procés entra a la zona crítica per molt que li arribin requests aquestes seran guardades a la llista de waiting i els altres processos no hi podran accedir a la zona crítica fins que el procés que actualment hi està accedint faci release, ja que no habran rebut tots els ok necessaris per fer-ho. Aquest codi s'implementa a la funció held. 
+\newline
+
+d) Do the situations described in the previous question b) still lead to a
+process withdrawal in this lock implementation?
+
+En el cas del Deadlock no, ja que amb la implementació actual no es pot donar lloc degut a que treballem amb prioritats, per el que si hi ha conflicte entre dos processosaccedirà el més prioritari.
+Per un altre part la segona situació descrita a la pregunta b es pot seguir donant i amb bastant freqüència. Això es deu a que ara hi hauran processos més prioritaris que altres, per el que els processos poc prioritaris podran tenir moltes situacions en les que no podran accedir a la zona crítica en molt temps i el seu temps màxim d'espera expirarà.
+\newline
+
+e) What is the main drawback of this lock implementation?
+
+Els processos que provenen d'instàncies amb nombres més alts difícilment poden accedir a la zona crítica a causa de la seva baixa prioritat. Aquest sistema pot ser útil si es busca doar una alta prioritat a una instància sobre una altra, perì sinóprovoca un gran desbalançament de temps que ocupa cada instància a la zona crítica.
+\newline
+
+f) Justify if this lock implementation requires sending an additional request message (as well as the ok message) when a process in the waiting state receives a request message with the same logical time from another pro-
+cess with higher priority.
+
+Si perquè necessites que aquell proces et situi a la seva cua de wating.
+\newline
+
+g) Do the situations described in the previous question b) still lead to a
+process withdrawal in this lock implementation?
+
+El Deadlock no pot succeïr perquè en cas d'haver un empat en el valor dels clocks s'utilitza la metodologia del lock2 basada en prioritats per a fer el desempat.
+La segona situació pot seguir succeïnt degut a que pot haver un procés ocupant la zona crítica durant més temps que el temps d'espera d'un procés que hi vol accedir.
+\newline
+
+h) Note that the workers are not involved in the Lamport’s clock. According
+to this, would it be possible that a worker is given access to a critical
+section prior to another worker that issued a request to its lock instance
+logically before (assuming happened-before order)? (Note that workers
+may send messages to one another independently of the mutual-exclusion
+protocol).
+
+
+No perquè l'entrada a la regió crítica depén del protocol d'exclusió mútua que no donarà prioritat a una instància que s'ha fet posteriorment a una altre. 
+\newline
+
+\section{Personal opinion}
+
+\textit{Give your opinion of the seminar assignment, indicating whether it should be included in next year's course or not.}
+\newline
+Al principi s'ens va fer complicat iniciar amb la pràctica ja ue vam notar un salt de complexitat en quant a la pràctica anterior. Encara així la vam acabar entenent i creiem que ha estat bastant útil.
+\end{document}

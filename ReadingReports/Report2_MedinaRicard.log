@@ -1,0 +1,157 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2023.2.20)  2 MAR 2023 19:12
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**Report2_MedinaRicard.tex
+(./Report2_MedinaRicard.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-01-09> xparse <2020-03-03>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+)
+\c@part=\count177
+\c@section=\count178
+\c@subsection=\count179
+\c@subsubsection=\count180
+\c@paragraph=\count181
+\c@subparagraph=\count182
+\c@figure=\count183
+\c@table=\count184
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2020/08/01 v1.3d Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2020-01-29 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count185
+\l__pdf_internal_box=\box47
+)
+No file Report2_MedinaRicard.aux.
+\openout1 = `Report2_MedinaRicard.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 18.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 18.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 18.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 30.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.43 ...à per a gairebé tots els sistemes clock_
+                                                  gettime i
+? 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 43.
+
+LaTeX Warning: Command \' invalid in math mode on input line 44.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.44 ... als programes d'usuari. Cada rellotge té
+                                                   dues
+? 
+! You can't use `\spacefactor' in math mode.
+\add@accent ... \accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.44 ... als programes d'usuari. Cada rellotge té
+                                                   dues
+? 
+! Interruption.
+l.44 ... als programes d'usuari. Cada rellotge té
+                                                   dues
+? 
+
+LaTeX Warning: Command \' invalid in math mode on input line 45.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.45 variants. La primera, la precisió
+                                       ,  que obté el temps més acurat per...
+
+? 
+! Interruption.
+\add@accent ...let \ignorespaces \relax \accent #1
+                                                   #2\egroup \spacefactor \a...
+l.45 variants. La primera, la precisió
+                                       ,  que obté el temps més acurat per...
+
+? 
+! You can't use `\spacefactor' in math mode.
+\add@accent ... \accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.45 variants. La primera, la precisió
+                                       ,  que obté el temps més acurat per...
+
+? 
+! Interruption.
+l.45 variants. La primera, la precisió
+                                       ,  que obté el temps més acurat per...
+
+? 
+
+LaTeX Warning: Command \' invalid in math mode on input line 45.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.45 ...ants. La primera, la precisió,  que obté
+                                                   el temps més acurat per�...
+
+? 
+! Interruption.
+\add@accent ...let \ignorespaces \relax \accent #1
+                                                   #2\egroup \spacefactor \a...
+l.45 ...ants. La primera, la precisió,  que obté
+                                                   el temps més acurat per�...
+
+? 
+! You can't use `\spacefactor' in math mode.
+\add@accent ... \accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.45 ...ants. La primera, la precisió,  que obté
+                                                   el temps més acurat per�...
+
+? 
+! Emergency stop.
+\add@accent ... \accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.45 ...ants. La primera, la precisió,  que obté
+                                                   el temps més acurat per�...
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 465 strings out of 481252
+ 8362 string characters out of 5915888
+ 277069 words of memory out of 5000000
+ 17476 multiletter control sequences out of 15000+600000
+ 408367 words of font info for 43 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 44i,8n,50p,302b,248s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!

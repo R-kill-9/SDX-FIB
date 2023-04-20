@@ -1,0 +1,126 @@
+\documentclass[a4paper, 10pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\makeatletter
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}
+	{-3.25ex\@plus -1ex \@minus -.2ex}%
+	{1.5ex \@plus .2ex}%
+	{\normalfont\large\itshape}}
+\makeatother
+
+\title{Reading Report: Terry13}
+\author{\textbf{Ricard Medina Amado}}
+\date{\normalsize\today{}}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+  Upload your report in PDF format.
+  
+  Use this LaTeX template to format the report, keeping the proposed headers.
+  
+  The length of the report must not exceed \textbf{5 pages}.
+\end{center}
+
+\section{Content}
+
+\subsection{Identify the genre\protect\footnote{Genres: book, article, essay, report, review, manual, white paper, data sheet, weblog, etc.} of the document, its purpose, and its target audience.}
+
+Es tracta d'un article periodístic que pretén explicar la consistència de dades mitjançant diferents rols en un partit de baseball. Està dirigit a un públic amb uns coneixements necessaris mínims.
+
+\subsection{Summarize the document, indicating the key concepts\protect\footnote{The summary should help you to answer the questions about the reading in the exam.}.}
+
+L'article inicia explicant com funciona WindowsAzure Storage. Aquest serveité una gran consistència de les dades, degut a que sempre ens dona l'últim valor del data object.
+Per una altra part trobemAmazon Simple Storage que sostenen que la tenença d'una gran consistència
+provoca pèrdues de temps. Per això apliquen un mètode anomenat eventually consistent, on es retornen valors que es trobaven al data object en temps anteriors, però no asseguren que sigui el que hi ha just al moment de la petició.
+Per últim està Amazon's DynamoDB que incorpora les dues metodologies.
+Així doncs podem veure que depenent de les nostres necessitats pot ser millo aplicar una estratègia de consistència o una altra. Uns exemples són:
+\newline
+
+-Strong consistency: Sempre proporciona de forma segura el que ha estat escrit amb posterioritat, però no és eficient en termes de temps.
+
+
+-Eventual consistency: Retorna una de les últimes escriptures que s'han fet sobre l'objecte, però no assegura que sigui la última. En termes de temps és la que proporciona les dades amb més velocitat.
+
+
+-Consistent prefix: Retorna una dada amb un valor que no és de forma segura el més actualitzat degut a que gestiona les contestacions mitjançant rèpliques que no han rebut actualitzacions.
+
+
+-Bounded staleness: Funciona utilitzant mesures de temps T, per tant retorna un resultat de com a màxim T minuts d'aantiguetat. El resultat sol ser bastant actualitzat.
+
+
+-Monotonic reads: Si es llegeix un objecte i posteriorment es torna a llegir el valor retornat al segon read ha de ser igual o més actualitzat que al primer.
+
+
+-Read my writes: Assegura que tots els writes fets per l'usuari seran visibles per a ell quan faci un read posteriorment.
+\newline
+\newline
+En termes de consistència els millors són Strong consistency i Bounded Staleness. En termes temporals  els millors serien Eventually consistent, Consistentprefix i Monotonic reads. En termes de disponibilitat els millors són Consistent prefix i Eventually consistent.
+Seguidament s'ens presenta l'exemple d'un partit de baseball utilitzat per a explicar la tipologia de consistència de dades que necessitaria cada una de les persones implicades al  partit.
+Abans de fer-ho sens presenta una taula molt útil per a exemplificar el funcionament de cada tipologia de consistència.
+Per a un partit en el que el resultat actual és 5-2 les diferents topologies retornarien:
+\newline
+\newline
+-Strong consistency: 5-2
+
+
+-Eventual consistency: Qualsevol dels resultats que hi han hagut amb un màxim de 5 per al local i 2 per al visitant.
+
+
+-Consistent prefix: (0-0, 1-0, 1-1, 2-1, 3-1, 3-2, 4-2, 5-2) Tenint en compte que aquests resultats són els que han hagut al partit retornaria qualsevol d'aquests.
+
+
+-Bounded staleness: Depenent del moment en el que s'hagués fet l'ultim write tornaria un o un altre, típicament 5-2.
+
+
+-Monotonic reads: Depenent de quin fos l'últim read, si per exemple fos 2-1 tornaria qualsevol valor entre 2-1 i els posteriors.
+
+
+-Read my writes: Depenent de si l'últim escriptor ha estat qui fa el read. En cas de ser-ho es comportaria com el strong consistency sinó com el
+eventual consistency.
+\newline
+\newline
+Després d'explicar la taula explica les diferents consistències per a cada rol.
+\newline
+\newline
+-Responsable del marcador: El marcador sempre necessita estar actualitzat, ja que si s'ha de fer una lectura sobre aquest per a sobreescriure'l necessita una alta consistència. Degut a que els reads i els
+writes els fa el mateix usuari es podria utilitzar un Read my writes. Ja que temporalment les lectures i les escriptures estaran bastant separades es pot garantir una convergència en quant a les dades en els diferents servidors.
+
+
+-Àrbitre: Té una gran rellevància a meitat del partir, quan l'equip visitant ja ha batejat i li toca batejar al local. En cas de que la puntuació de l'equip local ja sigui superior el partit s'acaba sense que aquest equip hagi de batejar.
+L'àrbitre podria utilitzar un strong consistency.
+
+
+-Treballador dela ràdio: és important que digui resultats que han existit, encara que no siguin els més actualitzats. Pot utilitzar monotonic reads o consistent prefix.
+
+
+-Periodista esportiu: Ja que necessita els resultats un cop ha acabat el partit podria utilitzar un bounded staleness.
+
+
+-Estadista: Ja que necessita els resultats un cop ha acabat el partit podria utilitzarbounded staleness. Per a llegir estadístiques antigues amb seguretat que només han estat modificades per ell utilitzaria read my writes.
+
+
+-Observador de dades: Ja que el resultat no és important per a ell podria utilitzar eventual consistency.
+\newline
+
+Està clar que la millor opció sempre seria strong consistency, ja que és el mètode més fiable i segur per a retornar les dades. Encara així, no sempre és el més òptim en termes de performance i per això es busquen altres alternatives. 
+Cada una de les diferents opcions ofereixen uns pros i uns contras diferents. A les bases de dades els diferents usuaris poden tenir diferents tipologies de consistència.
+
+
+\section{Assessment}
+
+\subsection{Rate the readability of the document: easy, readable, difficult, unreadable.}
+
+Ha estat un article bastant fàcil de llegir.
+
+\subsection{Give your opinion of the reading assignment, indicating whether it should be included in next year's course or not.}
+
+M'ha semblat un article bastant fàcil i interessant de llegir. El fet de combinar l'explicació amb exemplificacions de baseball el fa més entretingut de llegir. A més les figures i les taules que s'aporten a l'article el fan més visual i ajuden a entendre'l millor.
+	
+\end{document}
+
+
+

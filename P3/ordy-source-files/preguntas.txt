@@ -1,0 +1,30 @@
+a) Are the posts displayed in FIFO, causal, and total order? Justify why.
+No.
+
+CAUSAL:
+P1 RECV(   4) ; From: P2(   2) ; Subject: Re:Re:Re:rbgafolq //primeras lineas
+P1 RECV(   5) ; From: P3(   2) ; Subject: Re:Re:rbgafolq
+
+
+FIFO:
+
+
+TOTAL:
+La segona recepció de P2 és diferent a la segona recepció de P4.
+
+P2 RECV(   2) ; From: P2(   2) ; Subject: zcxkanby
+P4 RECV(   2) ; From: P4(   1) ; Subject: sjfuvqaw
+
+
+
+
+b)
+
+FIFO:
+Es compleix degut a que els missatges enviats per la resta de nodes es reben en l'ordre en el que s'han enviat.
+
+TOTAL:
+NO es cumpleix ja que no tots els nodes reben els missatges en el mateix ordre.
+
+P2 RECV(   2) ; From: P2(   2) ; Subject: zcxkanby
+P4 RECV(   2) ; From: P4(   1) ; Subject: sjfuvqaw

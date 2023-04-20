@@ -1,0 +1,83 @@
+\documentclass[a4paper, 10pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\makeatletter
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}
+	{-3.25ex\@plus -1ex \@minus -.2ex}%
+	{1.5ex \@plus .2ex}%
+	{\normalfont\large\itshape}}
+\makeatother
+
+\title{Reading Report:  Neville-Neil16}
+\author{\textbf{Ricard Medina Amado}}
+\date{\normalsize\today{}}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+  Upload your report in PDF format.
+  
+  Use this LaTeX template to format the report, keeping the proposed headers.
+  
+  The length of the report must not exceed \textbf{5 pages}.
+\end{center}
+
+\section{Content}
+
+\subsection{Identify the genre\protect\footnote{Genres: book, article, essay, report, review, manual, white paper, data sheet, weblog, etc.} of the document, its purpose, and its target audience.}
+
+article
+
+\subsection{Summarize the document, indicating the key concepts\protect\footnote{The summary should help you to answer the questions about the reading in the exam.}.}
+
+Primerament s'explica la importància i rellevància de ls sincronització temporal entre els rellotges de diferents hosts, ja que d'això pot depndre el correcte funcionament d'un procès.
+Són els cristalls de quars els encarregats de dita sincronització. Les CPUs són capaces d'executar-se a la velocitat que ho fan(3 GHz) degut a que a la placa base hi ha una pedra
+de quars a la que se li aplica un corrent elèctric i aquesta vibra a una freqüència coneguda. Aquesta freqüència es reparteix per la resta del sistema.
+Si un cristall s'escalfa, per exemple per l'excès de treball, el rellotge d'aquell host s'accelerarà i al revès si se li aplica fred.
+Pera corregir aquestes desviacions, sobretot produïdes a hosts de baixa qualitat el 'SO' té diferents mecansimes per els quals fa les rectificaciones pertinents. Un altre mètodo possible és connectar al servidor un cristall
+oscil·lador extern distribuit sobre un bus serial. Si s'injecta un senyal de bona qualitat a 10 MHz vis una linea serial també pot donar bons resultats. Distribuir aquesta senyalés viable per a un nombre petit de conexions(aprox. 50), però no més.
+
+
+El temps actual sol ser invocat per els desenvolupadors de software amb la funció gettimeofday(). Encara que aquesta funció valdrà per a gairebé tots els sistemes clock\_gettime i
+clock\_getres() poden oferir una millor flexibilitat. Els sistemes amb les rutines clock\_* ofereixen diferents tipus de relllotges per als programes d'usuari. Cada rellotge té dues 
+variants. La primera, la precisió,  que obté el temps més acurat però tarda més en retornar-se i fast, que es retorna ràpidament amb un resultat menys acurat. En cas de voler 
+calcular un interval temporal rdtsc és la millor opció.
+
+
+Una solució per a trobar una bona font temporal és la reed, per exemple, es pot usar el Network Time Protocol(NTP). A NTP hi han rellotges amb diferents 'stratum'. A l'stratum 0 hi han
+els que es consideren de referència, usats per GPS. a l'stratum 1 els rellotges estan connectats a l'stratum 0 via cable. A l'stratum 2 hi són connectats per cable a l'stratum 1 i així successivament fins al 15.
+No hi ha cap estandar, només que quan més petit és el nombre d'stratum millor ha de ser la qualitat del rellotge.
+Molts 'so' incorporen una crida anomenada adjtime() que permet a un programa extern com NTPd(NTP daemon) canviar el valor del rellotge. 
+El Precision Time Protocol(PTP) va ser diseñat per a treballs on la necessitat de un a exactitut temporal de milisegons és essencial, actualment s'usa en fincances, en particular  a high-frequency trading(TDT).
+El món HFT requereix d'una gran quantitat de servidors per a poder executar un gran nombre de transaccions en un temps exacte respectant l'ordre dels events. Les escales de segons han anat passant
+de milisegons a microsegons i fins rangs més petits.
+
+
+Per la seva part PTP difereix de NTP en molts punts, com que fou dissenyat per a pocs hosts en una única red, assumint que no hi han switchos ni hubs. Encara que es pot enrrutar la pèrdua de 
+qualitat fa que no sigui útil. PTP està dissenya de forma multicast en la que hi ha un grandmaster, que és el millor rellotge i la resta són els seus esclaus. El grandmaster envia un paquet SYNC per segon amb el temps actual.
+Els esclaus envien 'DELAY\_REQUEST' a les que el grandmaster respon amb 'DELAY\_RESPONSE'. Això permet a l'esclau determinar el seu delay i fer els canvis pertinents.
+PTP assumeix simetria a la red aixì que suposa que hi ha el mateix delay de grandmaster a esclau que al revès. En cas de no ser-ho s'ofereix un daemon que pot ser configurat per arreglar dit prblema.
+Els protocols temporals en red són molt sensibles al jiter. Executar el timing protocol a la seva propia red redueix el jitter creart per la propia red. El major contribuidor de jitter en PTP sol
+ser el software. La proliferització de PTP al món HTF a permès que molts proveidors de tarjetes afegeixin oscil·ladors i hardware amb timestamping als seus dispositius.
+Una pràctica comú per a la sincronitzacióals data centers és fer el rellotge del grandmaster bassat en GPS. Això surt més econòmic que posar un oscil·lador a cada server.
+
+
+Encara que els primers data centers en aplicar PTP han estat els de l'aspecte financer, hi han moltes altres aplicacions que necessitaran una sincronització d'alta qualitat.
+
+\section{Assessment}
+
+\subsection{Rate the readability of the document: easy, readable, difficult, unreadable.}
+
+readable
+
+\subsection{Give your opinion of the reading assignment, indicating whether it should be included in next year's course or not.}
+
+És interesant, l'únic aspecte negatiu  és que es fa una mica complicat llegir en mode article tal i com estàal pdf.
+	
+\end{document}
+
+
+
