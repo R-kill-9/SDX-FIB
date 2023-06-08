@@ -18,7 +18,7 @@
 #### Home-based approaches
 - Introduce una *home location* que trakea la localización actual de la entidad.
 - Los clientes siempre revisan primero la *home location* y posteriormente la localización externa.
-![[Pasted image 20230608201134.png]]
+![](Pasted%20image%2020230608201134.png)
 
 #### Distributed Hash Tables
 - La hash Table asocia data con keys.
@@ -51,7 +51,7 @@
 	- **Managerial layer**
 		- Directorio de nodos de nivel bajo manejado por una única organización (hosts en una network local).
 		- Los nodos cambian con frecuéncia.
-![[Pasted image 20230608202542.png]]
+![](Pasted%20image%2020230608202542.png)
 
 ### Name resolution
 - Cada cliente accede a un name resolver local.
@@ -86,13 +86,13 @@
 - Anteriormente era stateless, la v4 es stateful
 
 **VFS**: Provee acceso a los archivos locales y remotos de forma uniforme y *transparente*.
-![[Pasted image 20230608185840.png]]
+![](Pasted%20image%2020230608185840.png)
 ##### Coda
 - Basado en AFS v2
 - Filosofia: **Scalability and avaliability are more important than consistency**.
 - Usa modelo Upload/download
 - Tiene unos pocos Vice file servers y muchos Virtue clients.
-![[Pasted image 20230608185810.png]]
+![](Pasted%20image%2020230608185810.png)
 
 #### Cluster-based architectures
 - Para mejorar el funcionamiento en los servidores situados en clusters usan File-striping.
@@ -122,7 +122,7 @@
 - *Pathnames* no son globalmente únicos, dependen del local name spaces del cliente.
 	- Para solucionarlo se estandarizan name spaces como /usr/bin por ejemplo.
 - En v4 el name resolution también puede ser recursivo.
-![[Pasted image 20230608185908.png]]
+![](Pasted%20image%2020230608185908.png)
 
 #### Coda naming
 - *Único* name space compartido de forma global, **/afs**.
@@ -131,7 +131,7 @@
 	- Los volumenes deben estar montados.
 	- Los volumenes tienen que estar replicados en los servidores.
 
-![[Pasted image 20230608185925.png]]
+![](Pasted%20image%2020230608185925.png)
 
 
 ### Synchronization
