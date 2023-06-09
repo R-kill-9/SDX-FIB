@@ -189,3 +189,172 @@
 	- HOARDING
 	- EMULATION
 	- REINTEGRATION
+
+## Tema 8
+
+## Architecture
+
+#### Traditional Web-based system
+- Los documentos pueden sre texto plano, HTML, XML, imágenes, etc.
+- Pueden incluir *scripts* que se ejecuten en el cliente.
+#### Multitiered architectures
+- Tienen una *Common Gateway Interface* 
+	- Server ejecuta programas usando la data del usuario como input.
+- Esto nos lleva a la *three-tiered architecture*:
+	- Web server <-> CGI <-> Database Server
+
+#### Web server clusters 
+- Sepueden hacer clusters con los servidores para mejorar el rendimiento
+- Como un cluster son varios servidores que comparten un front-end, el front-end tiene que estar bien dieseñado para no sobrecargarse.
+- **Request routing**: Mecanismo para enrutar los requests del cliente al servidor que ha seleccionado.
+	- Puede usar una aqrquitectura *two-way* o *one-way*.
+		- En la arquitectura *one-way* solo los requests de entrada pasan por el switch.
+	- Puede usar un switch *layer 4* o *layer 7*.
+		- El *layer 4* proporciona packet rewriting, packet tunneling y packet forwarding.
+		- El *layer 7* proporcionaTCP gateway, TCP splicing, TCP hand-off.
+
+- **Request diapatching**: Políticas para seleccionar el servidor que se considera mejor situado para tratar el request del cliente.
+	- *Content-blind request dispatching*: Usa un algoritmo estático donde no usa ninguna información o uno dinámico donde usa la información del estado cliente/servidor.
+	- *Content-aware request dispatching*: Hace lo mismo que los dinámicos de content-blind.
+
+### Communication
+
+#### HTTP
+- Protocolo de transferencia entre cliente/servidor.
+- Basado en TCP.
+- v1.0 usa conexiones no persistentes, la v1.1 si persistentes.
+- **Pipelining**: El cliente puede hacer varias requests seguidas sin haber recibido la respuesta para la primera.
+
+#### Simple Object Access Protocol (SOAP)
+- Protocolo estándar para la comunicación entre Web services.
+- Basado en XML.
+- Los mensajes SOAP tienen un *Header* opcional y un *Body* obligatorio.
+
+#### Representative State Transfer (REST WS)
+- Los clientes usan operaciones HTTP (GET; PUT, etc) y URLs para manipular recursos que están en XML/JSON.
+
+#### Web Services Description Language (WSDL)
+- Lenguaje formal para describir de forma precisa un servicio proporcionado por WS.
+- Basado en XML.
+
+### Naming
+- Los documentos se identifican por *URIs* (Uniform Resource Identifiers)
+	- *URN* (Uniform Resource Name): Globalmente único, independiente, persistente.
+	- *URL* (uniform Resource Locator): Incluye información de cómo y dónde acceder al documento.
+#### Universal Description Discovery Interface (UDDI)
+- Guarda descripciones de los servicios en documentos WSDL.
+- Los clientes pueden buscar un servicio por su nombre o atributo(directorio de servicio).
+- Los cambios en una descripción se deben hacer en el owner .
+- Los cambios se propagan un un anillo lógico.
+
+### Synchronization
+
+#### Google Docs Collaboration
+- El documentose guarda en un server com una lista de cambios cronológicos.
+- Usa un protocolo colaborativo para sincronizar los cambiios.
+
+### Consistency & replication
+
+#### Client-side caching
+- Cahce del buscador.
+- .Web proxy caching
+	- Se instala un servidor proxy que para todos requests locales del cliente al servidor.
+	- La caches se representan en documentos.
+		- *Hierarchical caches*: Las caches cubren una región. 
+		- *Cooperative caching*: Cuando hay un fallo de cache el proxy revisa los proxys vecinos.
+#### Content Distribution Networks (CDN)
+- Se replica el contenido de los servidores para poder ofrecer un mejor servicio a menor latencia.
+- Para hacer las redirecciones se puede hacer:
+	- Redirección HTTP
+	- URL rewritting
+	- Redirección DNS
+
+## Tema 9
+
+### Introduction
+- Los sistemas Peer to Peer no distinguen entre cliente y servidor.
+	- Todos los peers contribuyen con sus recursos de forma simétrica.
+	- Las cargas se balancean.
+	- Operan independientemente de un nodo central.
+- Se organizan en una network donde los nodos son los peers y los links los posibles canales de comunicación.
+
+### Unstructured P2P systems
+
+#### Centralized model: Napster
+- Consulta un sistema de índice centralizado que devuelve los peers que almacenan el archivo requerido. 
+- Transferir el archivo desde el o los peers dados.
+
+#### Centralized model: BitTorrent
+- Sistema colaborativo que provee el contenido usando *file swarming*.
+	- Parte un archivo en pequeñas partes y los nodos piden esas partes a sus vecinos.
+- Combina un modelo cliente-servidor para alocatar las piezas con un P2P protocol de bajada.
+- Los archivos torrent conteienen *metadata* y la URL del tracker.
+- **Tracker**: Trakea todos los peers que tienen un archivo y que parte de archivo tienen.
+- **Seeds**: Peers que tienen una copia entera del archivo.
+- **Leechers**: Peers que no tienen una copia entera de un archivo.
+
+###### BitTorrent Piece selection
+- El orden en el que se seleccionan las piezas es crítico para un buen funcionamiento.
+- Se usa el método **Rarest Piece First** mediante el cual se baja primero las piezas que son más difíciles de encontrar.
+- Al principio de la descarga se usa **Random First Piece** para que obtenga lomás rápido posible cualquier pieza. No se usa *Rarest First Piece* porque podira ser muy lento y al iniciar no nos interesa.
+- Al finalizar se usa **End Game Mode** Cuando todas las sub-piezas ya se han pedido, las no recibidas se piden a todos los nodos que las contienen.
+#### Centralized model: Choking
+- Quiere garantizar que todos los peers suben y bajan archivos de forma recíproca e igualitaria.
+- **Chocking** es refusar de forma temporal una subida.
+
+#### Decentralized model: Gnutella
+- Basado en el mecanismo de *flooding*.
+- Para encontrar un archivo: 
+	- Un peer envía una query a todos los vecinos.
+- Los vecinos hacen de forma recursiva un multicast del descriptor.
+	- El peer que tiene el archivo recibe el descriptor y envía una QueryHit.
+- Añade TTL (Time-To-Live) para controlar el flooding.
+
+#### Hierarchical model: FastTrack
+- Hay unos pocos nodos especiales llamados **super-peers**, que en su interior contienen peers normales.
+- Los super-peers saben todos los archivos que tienen sus peers.
+- Los peers le hacen las querys a sus super-peers y estos se comunican con el resto de super-peers.
+
+### Structured P2P systems
+- Se usan Hash Table Distribuidas para asegurarse de que un item siempre se puede encontrar.
+
+#### Chord
+- Identificador de m bits para keys y nodos.
+- Los identificadores se ordenan en un círculo de 2^m.
+- Para mapear un nodo se usa como key el ID y se guarda en el nodo *sucesor* del nodo con mayor ID.
+![](Pasted%20image%2020230609113245.png)
+- Cada nodo conoce solo al predecesor y al sucesor.
+- Los requests se envían a través del anillo gracias a que se enrutan a los sucesoers de los nodos.
+
+##### Finger Tables
+- Se usan para acelerar las búsquedas.
+![](Pasted%20image%2020230609113611.png)
+##### Node joining
+- Cuando se une un nuevo nodo se usa la **Stabilization**.
+- Es un método para tratar joins concurrentes actualizando los punteros de sucesor para una actualización coherente.
+
+##### Node failures
+- Los fallos en los nodos pueden causar búsquedas incorrectas.
+- Si un nodo percibe que su sucesor ha fallado lo sustituye con el próximo sucesor vivo más cercano.
+
+#### Kademlia
+- Identificador de 160 bits para keys y nodos.
+
+##### Binary Tree
+- Los nodos se tratan omo hojas de un binary tree.
+![](Pasted%20image%2020230609114315.png)
+
+##### Protocol
+- El protocolo de Kademlia consta de 4 RPCs:
+	- PING
+	- STORE
+	- FIND_NODE
+	- FIND_VALUE
+
+##### Node lookup
+- Se hace una búsqueda iterativa por prefijo.
+- El nodo origen es el responsable de la búsqueda.
+- Usa *parallel routing* para hacer los lookups más rápidos.
+
+##### Node join
+- Para unirse el nuevo nodo debe conocer a uno de los nodos ya existentes en el sistema.
