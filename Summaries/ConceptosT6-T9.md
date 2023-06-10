@@ -13,10 +13,10 @@
 	- Hace broadcast del identificador, haciendo request  de la entity para que se devuelva la dirección.
 - Forwarding pointers
 	- Usado para localizar entidades móviles.
-	- Cada vez que una entidadse mueve deja una referéncia de su nueva localización.
+	- Cada vez que una entidad se mueve deja una referéncia de su nueva localización.
 
 #### Home-based approaches
-- Introduce una *home location* que trakea la localización actual de la entidad.
+- Introduce una *home location* que trackea la localización actual de la entidad.
 - Los clientes siempre revisan primero la *home location* y posteriormente la localización externa.
 ![](Pasted%20image%2020230608201134.png)
 
@@ -27,7 +27,7 @@
 
 
 ### Structured naming
-- Los flat names son cómodospara las máquinas pero no para los humanos.
+- Los flat names son cómodos para las máquinas pero no para los humanos.
 - Debido a esto, se usan nombres estructurados.
 	- Ej: file naming: /home/steen/mbox
 	- Ej: naming on the Internet: www.cs.vu.nl
@@ -169,7 +169,7 @@
 	- Durante la delegación el cliente puede tratar el archivo sin preocuparse por los conflictos de acceso.
 	- Las delegaciones se pueden recuperar por parte del servidor usando *callbacks*.
 	- *Cuando un archivo está delegado el propietario maneja los requests para abrir el archivo de lectura.*
-	- *Cuando otro cliente hace un request para escribir en un archivo delegado el servidor hace recall del archivo.
+	- *Cuando otro cliente hace un request para escribir en un archivo delegado el servidor hace recall del archivo*.
 
 #### Coda client-side caching
 - Coda crea una copia local del archivo cuando se abre.
