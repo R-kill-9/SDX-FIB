@@ -162,7 +162,7 @@
 		- Valida los cache blockscuando se usan con un procedimiento basado en timestamps.
 	- Close-to-open cahce consistency
 		- Extiende el procedimiento anterior para soportar los típicos escenarios de file sharing.
-		- El cliente fuerza un cache validity check con sel servidor *cuando se abreel fichero*.
+		- El cliente fuerza un cache validity check con sel servidor *cuando se abre el fichero*.
 		- Cuando se cierra el archivo los cambios se flushean al servidor para que el siguiente en abrir el archivo los vea.
 - NFS v4 soprta **open delegation**
 	- El servidor voluntariamente y temporalmente cede el control de las operaciones en un archivo al cliente.
@@ -358,3 +358,29 @@
 
 ##### Node join
 - Para unirse el nuevo nodo debe conocer a uno de los nodos ya existentes en el sistema.
+
+## EJERCICIOS EXAMEN
+
+### Finger tables
+- **FÓRMULA**: 
+	```bash
+	successor = id + 2^i
+	```
+- Te dan una lista de nodos y un nodo para el que hacer la finger table.
+- La cantidad de 'i' que tienes que hacer es el número de bits que te digan, si son 12 bits, serán 12 'i' del 0 al 11.
+- Para cada 'i' calculas el sucesor con la fórmula que te dan.
+	- El sucesor será el número más cercano de identificador de nodo al resultante de aplicar la fórmula.
+- En caso de sobrepasar el valor del úlimo nodo sigues por el nodo inicial, ya que están ordenados en forma de anillo.
+- **Lookup*** 
+	- Si no está la clave exactamente el nodo final será el sucesor con id más grande que la key y más cercano a esta. 
+	- Es muy recomendable ir haciendo la finger table para cada nodo y viajar al siguiente más cercano, hacer su finger table y así sucesivamente hasta llegar al último.
+
+- **EJEMPLO**:
+	- Nodos: 2, 3, 6, 8, 10
+	- Calcular finger table para nodo 2 con 3 bits.
+		- successor[0] = 2 + 2⁰ = 3
+			- Como tenemos un nodo con id = 3 en la finger table para la posición i = 0 el successor será 3.
+		- successor[1]  =2+2¹ = 4
+			- El nodo sucesor para i = 1 será 6, ya que es el más cercano a 4, no es el nodo 3 porque es inferior a 4.
+		- successor[1]  =2+2² = 6
+			 - Como tenemos un nodo con id = 6 en la finger table para la posición i = 2 el successor será 6. 
