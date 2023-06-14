@@ -394,7 +394,10 @@
 			 - Como tenemos un nodo con id = 6 en la finger table para la posición i = 2 el successor será 6. 
 
 ### wireless
-- Calcular las distancias de un punto a otro como sqrt(a² + b²).
+- Calcular las distancias de un punto a otro como 
+```bash
+sqrt(a² + b²)
+```
 - Para el método *push* se hace un broadcast.
 	- Calcular distancia entre los nodos más alejados.
 	- Calcular energia necesria para transmitir un paquete (aquí se suele multiplicar por la distancia calculada con la fórmula que te dan).
