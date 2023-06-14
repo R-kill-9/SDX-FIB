@@ -362,7 +362,7 @@
 ## EJERCICIOS EXAMEN
 
 ### Finger tables
-- **FÓRMULA**: 
+- **Completar Finger Table de un nodo**: 
 	```bash
 	successor = id + 2^i
 	```
@@ -374,7 +374,15 @@
 - **Lookup*** 
 	- Si no está la clave exactamente el nodo final será el sucesor con id más grande que la key y más cercano a esta. 
 	- Es muy recomendable ir haciendo la finger table para cada nodo y viajar al siguiente más cercano, hacer su finger table y así sucesivamente hasta llegar al último.
-
+- **Join**
+	- Para cada uno de los bots hay que aplicar esta fórmula:
+	 ```bash
+	 # N=Nodo que hace join
+	 # pred(N)= Nodo predecesor de N
+	 # i=bit
+	 [pred(N) − 2^i + 1, N − 2^i]
+	```
+	 - El intervalo resultante [a,b] nos dice de que nodo a que nodo hay que actualizar el valor del bit i de la finger table por el valor de N.
 - **EJEMPLO**:
 	- Nodos: 2, 3, 6, 8, 10
 	- Calcular finger table para nodo 2 con 3 bits.
@@ -384,3 +392,16 @@
 			- El nodo sucesor para i = 1 será 6, ya que es el más cercano a 4, no es el nodo 3 porque es inferior a 4.
 		- successor[1]  =2+2² = 6
 			 - Como tenemos un nodo con id = 6 en la finger table para la posición i = 2 el successor será 6. 
+
+### wireless
+- Calcular las distancias de un punto a otro como sqrt(a² + b²).
+- Para el método *push* se hace un broadcast.
+	- Calcular distancia entre los nodos más alejados.
+	- Calcular energia necesria para transmitir un paquete (aquí se suele multiplicar por la distancia calculada con la fórmula que te dan).
+	- Calcular energía necesaria para recibir paquetes y multiplicar por la cantidad de nodos receptores.
+	- Sumar los dos cálculos.
+-  Para el método *push* se hace P2P.
+	- Calcular distancia entre los nodos que se van a comunicar.
+	- Calcular energia necesria para transmitir un paquete (aquí se suele multiplicar por la distancia calculada con la fórmula que te dan).
+	- Calcular energía necesaria para recibir paquetes.
+	- Sumar los dos cálculos.
