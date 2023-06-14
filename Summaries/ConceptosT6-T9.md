@@ -400,11 +400,11 @@ sqrt(a² + b²)
 ```
 - Para el método *push* se hace un broadcast.
 	- Calcular distancia entre los nodos más alejados.
-	- Calcular energia necesria para transmitir un paquete (aquí se suele multiplicar por la distancia calculada con la fórmula que te dan).
+	- Calcular energia necesaria para transmitir un paquete (aquí se suele multiplicar por la distancia calculada con la fórmula que te dan).
 	- Calcular energía necesaria para recibir paquetes y multiplicar por la cantidad de nodos receptores.
 	- Sumar los dos cálculos.
 -  Para el método *push* se hace P2P.
 	- Calcular distancia entre los nodos que se van a comunicar.
-	- Calcular energia necesria para transmitir un paquete (aquí se suele multiplicar por la distancia calculada con la fórmula que te dan).
+	- Calcular energia necesaria para transmitir un paquete (aquí se suele multiplicar por la distancia calculada con la fórmula que te dan).
 	- Calcular energía necesaria para recibir paquetes.
 	- Sumar los dos cálculos.
