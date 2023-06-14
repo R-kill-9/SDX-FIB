@@ -405,6 +405,8 @@ sqrt(a² + b²)
 	- Sumar los dos cálculos.
 -  Para el método *push* se hace P2P.
 	- Calcular distancia entre los nodos que se van a comunicar.
+	- Calcular la energía consumida por un nodo para hacer una query multicast.
+	- Calcular energía consumida por todos los nodos para recibir una query y multiplicarlo por la cantidad de nodos que lo reciben.
 	- Calcular energia necesaria para transmitir un paquete (aquí se suele multiplicar por la distancia calculada con la fórmula que te dan).
 	- Calcular energía necesaria para recibir paquetes.
-	- Sumar los dos cálculos.
+	- Sumar los cuatro cálculos.
