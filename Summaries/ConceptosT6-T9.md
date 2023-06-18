@@ -71,7 +71,7 @@
 - Modelo de acceso remoto(remote file service)
 	- Casi todo el trabajo se hace en el servidor.
 	- Coste de comunicación bajo para  abrir ficheros, alto para operar con ellos.
-- Modelo Upload/Downkoad
+- Modelo Upload/Download
 	- Casi todo el trabajo se hace en el cliente.
 	- Coste de comunicación alto para abrir ficheros, bajo para operar con ellos.
 - Stateful server
@@ -159,7 +159,7 @@
 	- Data and metadata caching
 		- Cachea los resultados de las operaciones read, write, etc.
 		- Hace los writes localmente.
-		- Valida los cache blockscuando se usan con un procedimiento basado en timestamps.
+		- Valida los cache blocks cuando se usan con un procedimiento basado en timestamps.
 	- Close-to-open cahce consistency
 		- Extiende el procedimiento anterior para soportar los típicos escenarios de file sharing.
 		- El cliente fuerza un cache validity check con sel servidor *cuando se abre el fichero*.
@@ -195,7 +195,7 @@
 ## Architecture
 
 #### Traditional Web-based system
-- Los documentos pueden sre texto plano, HTML, XML, imágenes, etc.
+- Los documentos pueden ser texto plano, HTML, XML, imágenes, etc.
 - Pueden incluir *scripts* que se ejecuten en el cliente.
 #### Multitiered architectures
 - Tienen una *Common Gateway Interface* 
@@ -257,7 +257,7 @@
 
 #### Client-side caching
 - Cahce del buscador.
-- .Web proxy caching
+- Web proxy caching
 	- Se instala un servidor proxy que para todos requests locales del cliente al servidor.
 	- La caches se representan en documentos.
 		- *Hierarchical caches*: Las caches cubren una región. 
@@ -407,6 +407,8 @@ sqrt(a² + b²)
 	- Calcular distancia entre los nodos que se van a comunicar.
 	- Calcular la energía consumida por un nodo para hacer una query multicast.
 	- Calcular energía consumida por todos los nodos para recibir una query y multiplicarlo por la cantidad de nodos que lo reciben.
-	- Calcular energia necesaria para transmitir un paquete (aquí se suele multiplicar por la distancia calculada con la fórmula que te dan).
-	- Calcular energía necesaria para recibir paquetes.
+	- Calcular energia necesaria para transmitir el service description desde un nodo al otro (aquí se suele multiplicar por la distancia calculada con la fórmula que te dan).
+	- Calcular energía necesaria para recibir el service description.
 	- Sumar los cuatro cálculos.
+
+
