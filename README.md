@@ -3,10 +3,9 @@ Esto es una colección de todo lo que he hecho durante el curso junto a mi compa
 
 ## Contenido
 - **P1-P6**: Prácticas de laboratio.
-- **Diapos**: Diapositivas de todos los temas.
 - **ReadingReports**: PDFs de todos los Reading Reports.
 - **Reading_report_template**: Template en Latex para los Reading Reports.
-- **Summaries**: Resumenes para losdos parciales.
+- **Summaries**: Resumenes para los dos parciales.
 
 ## Recomendaciones
 - No recomiendo copiar las prácticas porque hay algunas incompletas, aún así se pueden usar de referencia.
